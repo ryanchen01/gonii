@@ -5,11 +5,12 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	gzip "github.com/klauspost/pgzip"
-	"github.com/okieraised/gonii/internal/system"
 	"math"
 	"os"
 	"strings"
+
+	gzip "github.com/klauspost/pgzip"
+	"github.com/okieraised/gonii/internal/system"
 )
 
 type Writer interface {

@@ -6,10 +6,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	gzip "github.com/klauspost/pgzip"
-	"github.com/okieraised/gonii/internal/system"
 	"math"
 	"os"
+
+	gzip "github.com/klauspost/pgzip"
+	"github.com/okieraised/gonii/internal/system"
 )
 
 // IsValidDatatype checks whether the datatype is valid for NIFTI format

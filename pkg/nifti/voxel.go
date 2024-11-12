@@ -2,6 +2,7 @@ package nifti
 
 import (
 	"errors"
+
 	"github.com/okieraised/gonii/internal/utils"
 )
 
