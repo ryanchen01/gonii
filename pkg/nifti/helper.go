@@ -556,7 +556,7 @@ func MakeEmptyImageFromHdr(hdr *Nii1Header) ([]byte, error) {
 	if hdr.Dim[2] == 0 {
 		return nil, errors.New("y dimension must not be zero")
 	}
-	bDataLength = int64(hdr.Dim[1] * hdr.Dim[2])
+	bDataLength = int64(hdr.Dim[1]) * int64(hdr.Dim[2])
 
 	if hdr.Dim[3] > 0 {
 		bDataLength = bDataLength * int64(hdr.Dim[3])
