@@ -4,9 +4,10 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/okieraised/gonii/pkg/matrix"
 	"math"
 	"strings"
+
+	"github.com/okieraised/gonii/pkg/matrix"
 )
 
 // Nii defines the structure of the NIFTI-1 data for I/O purpose
@@ -652,8 +653,8 @@ func (n *Nii) SetSclInter(sclInter float64) {
 }
 
 // SetPixDim sets the PixDim parameter
-func (n *Nii) SetPixDim() [8]float64 {
-	return n.PixDim
+func (n *Nii) SetPixDim(pixDim [8]float64) {
+	n.PixDim = pixDim
 }
 
 // SetDim sets the Dim parameter
