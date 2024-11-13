@@ -775,7 +775,7 @@ func (n *Nii) SetAt(newVal float64, x, y, z, t int64) error {
 
 // SetVoxelToRawVolume converts the 1-D slice of float64 back to byte array
 func (n *Nii) SetVoxelToRawVolume(vox *Voxels) error {
-	result := make([]byte, vox.GetRawByteSize(), vox.GetRawByteSize())
+	result := make([]byte, vox.GetRawByteSize())
 	nByPer := n.NByPer
 
 	for index, voxel := range vox.voxel {

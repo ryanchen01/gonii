@@ -219,7 +219,7 @@ func (v *Voxels) ImportAsRLE() ([]SegmentRLE, error) {
 	for z := int64(0); z < v.dimZ; z++ {
 		for t := int64(0); t < v.dimT; t++ {
 			sliceData := v.GetSlice(z, t)
-			for key, _ := range valMapper {
+			for key := range valMapper {
 				if key == 0 {
 					continue
 				}

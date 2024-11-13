@@ -135,9 +135,9 @@ func (w *NiiWriter) reconstructDataset() ([]byte, error) {
 	}
 
 	if offsetFromHeaderToVoxel > 0 {
-		offset = make([]byte, offsetFromHeaderToVoxel, offsetFromHeaderToVoxel)
+		offset = make([]byte, offsetFromHeaderToVoxel)
 	} else {
-		offset = make([]byte, DefaultHeaderPadding, DefaultHeaderPadding)
+		offset = make([]byte, DefaultHeaderPadding)
 	}
 
 	// Make a buffer and write the header to it with default system endian
@@ -172,7 +172,6 @@ func (w *NiiWriter) writePairNii() error {
 		w.filePath = w.filePath + NIFTI_EXT
 	}
 
-	headerFilePath = w.filePath
 	// Now replace the suffix to identify the header and img file
 	headerFilePath = strings.ReplaceAll(w.filePath, NIFTI_EXT, "_nifti.hdr")
 	w.filePath = strings.ReplaceAll(w.filePath, NIFTI_EXT, "_nifti.img")
@@ -220,6 +219,9 @@ func (w *NiiWriter) writePairNii() error {
 			return err
 		}
 		err = gzipWriter.Close()
+		if err != nil {
+			return err
+		}
 
 		// Write compressed data to file
 		gzipWriter = gzip.NewWriter(fData)
@@ -228,6 +230,9 @@ func (w *NiiWriter) writePairNii() error {
 			return err
 		}
 		err = gzipWriter.Close()
+		if err != nil {
+			return err
+		}
 
 	} else { // Write both the header and image data normally
 		_, err = fHeader.Write(bHeader)

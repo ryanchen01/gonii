@@ -537,7 +537,7 @@ func MakeEmptyImageFromImg(img *Nii) ([]byte, error) {
 	bDataLength = bDataLength * int64(nByper)
 
 	// Init a slice of bytes with capacity of bDataLength and initial value of 0
-	bData := make([]byte, bDataLength, bDataLength)
+	bData := make([]byte, bDataLength)
 
 	return bData, nil
 }
@@ -578,7 +578,7 @@ func MakeEmptyImageFromHdr(hdr *Nii1Header) ([]byte, error) {
 	bDataLength = bDataLength * int64(nByper)
 
 	// Init a slice of bytes with capacity of bDataLength and initial value of 0
-	bData := make([]byte, bDataLength, bDataLength)
+	bData := make([]byte, bDataLength)
 
 	return bData, nil
 }
