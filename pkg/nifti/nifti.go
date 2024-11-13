@@ -388,7 +388,7 @@ func (n *Nii) GetAffine() matrix.DMat44 {
 func (n *Nii) GetImgShape() [4]int64 {
 	dim := [4]int64{}
 
-	for index, _ := range dim {
+	for index := range dim {
 		dim[index] = n.Dim[index+1]
 	}
 	return dim
@@ -397,7 +397,7 @@ func (n *Nii) GetImgShape() [4]int64 {
 // GetVoxelSize returns the voxel size of the image
 func (n *Nii) GetVoxelSize() [4]float64 {
 	size := [4]float64{}
-	for index, _ := range size {
+	for index := range size {
 		size[index] = n.PixDim[index+1]
 	}
 	return size
